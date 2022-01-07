@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import AVKit
 
 class ImageTableViewCell: UITableViewCell {
     
@@ -68,7 +69,16 @@ class ImageTableViewCell: UITableViewCell {
     func configure(withModel model: Memory) {
         titleLabel.text = model.title
         dateLabel.text = model.date
-        memoryImageView.image = UIImage(named: model.asset)?.resizeImage(height: 250)
+        if model.isImage {
+            memoryImageView.image = UIImage(named: model.asset)?.resizeImage(height: 250)
+        } else {
+            let asset = AVURLAsset(url: NSURL(fileURLWithPath: model.asset) as URL, options: nil)
+            let imgGenerator = AVAssetImageGenerator(asset: asset)
+            guard let cgImage = try? imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil) else {
+                return
+            }
+            memoryImageView.image = UIImage(cgImage: cgImage)
+        }
         descriptionLabel.text = model.description
     }
     

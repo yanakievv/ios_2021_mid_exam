@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 class HomeViewController: UIViewController {
     
@@ -59,6 +60,20 @@ extension HomeViewController: UITableViewDelegate {
             navigationController?.pushViewController(imageViewController, animated: true)
             return
         }
+        
+//        Not going to lie, looked it up.
+        guard let videoURL = Bundle.main.url(forResource: model.memories[indexPath.row].asset, withExtension: "mp4") else {
+            return
+        }
+        
+        let player = AVPlayer(url: videoURL)
+        
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = view.bounds
+        
+        view.layer.addSublayer(playerLayer)
+        
+        player.play()
     }
 }
 
