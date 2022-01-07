@@ -61,19 +61,8 @@ extension HomeViewController: UITableViewDelegate {
             return
         }
         
-//        Not going to lie, looked it up.
-        guard let videoURL = Bundle.main.url(forResource: model.memories[indexPath.row].asset, withExtension: "") else {
-            return
-        }
-        
-        let player = AVPlayer(url: videoURL)
-        
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = view.bounds
-        
-        view.layer.addSublayer(playerLayer)
-        
-        player.play()
+        let videoViewController = VideoViewController(withModel: model.memories[indexPath.row])
+        navigationController?.pushViewController(videoViewController, animated: true)
     }
 }
 

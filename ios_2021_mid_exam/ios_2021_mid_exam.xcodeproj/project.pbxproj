@@ -38,6 +38,7 @@
 		202A935B2788A69200896694 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202A935A2788A69200896694 /* ImageTableViewCell.swift */; };
 		202A935E2788A6BE00896694 /* ImageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202A935D2788A6BE00896694 /* ImageTableView.swift */; };
 		202A93612788B09F00896694 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202A93602788B09F00896694 /* ImageViewController.swift */; };
+		202A93632788B6F800896694 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202A93622788B6F800896694 /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		202A935A2788A69200896694 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		202A935D2788A6BE00896694 /* ImageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableView.swift; sourceTree = "<group>"; };
 		202A93602788B09F00896694 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		202A93622788B6F800896694 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			children = (
 				202A931A2788A32300896694 /* HomeViewController.swift */,
 				202A93602788B09F00896694 /* ImageViewController.swift */,
+				202A93622788B6F800896694 /* VideoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				202A93452788A60600896694 /* Model.swift in Sources */,
 				202A93192788A32300896694 /* SceneDelegate.swift in Sources */,
 				202A935E2788A6BE00896694 /* ImageTableView.swift in Sources */,
+				202A93632788B6F800896694 /* VideoViewController.swift in Sources */,
 				202A932C2788A3F900896694 /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
