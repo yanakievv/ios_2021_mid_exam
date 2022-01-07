@@ -25,6 +25,8 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        Not going to lie, looked it up ...
+        
         guard let videoURL = Bundle.main.url(forResource: model?.asset ?? "", withExtension: "") else {
             return
         }
