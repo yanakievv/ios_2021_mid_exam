@@ -11,9 +11,12 @@ import UIKit
 class ImageViewController: UIViewController {
     private let imageView = UIImageView()
     
+    private let model: Memory?
+    
     init(withModel model: Memory) {
+        self.model = model
+        
         super.init(nibName: nil, bundle: nil)
-        imageView.image = UIImage(named: model.asset)
     }
     
     required init?(coder: NSCoder) {
@@ -22,5 +25,25 @@ class ImageViewController: UIViewController {
     
     override func loadView() {
         view = imageView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        guard let model = model else {
+            return
+        }
+
+        imageView.image = UIImage(named: model.asset)?.resizeImage(width: UIScreen.main.bounds.size.width)
+        
+        let titleLabel = UILabel()
+        titleLabel.text = model.title
+        titleLabel.textColor = .white
+        navigationItem.titleView = titleLabel
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        imageView.image = UIImage(named: model?.asset ?? "")?.resizeImage(width: UIScreen.main.bounds.size.width)
     }
 }
