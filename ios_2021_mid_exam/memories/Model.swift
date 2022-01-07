@@ -12,7 +12,7 @@ extension Memory {
         get {
             let asset = self.asset.lowercased()
             return asset.hasSuffix("png")
-            && asset.hasSuffix("jpg")
+            || asset.hasSuffix("jpg")
         }
     }
 }

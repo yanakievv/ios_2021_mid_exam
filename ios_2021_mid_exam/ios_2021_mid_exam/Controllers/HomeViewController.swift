@@ -54,8 +54,11 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let imageViewController = ImageViewController(withModel: model.memories[indexPath.row])
-        navigationController?.pushViewController(imageViewController, animated: true)
+        if model.memories[indexPath.row].isImage {
+            let imageViewController = ImageViewController(withModel: model.memories[indexPath.row])
+            navigationController?.pushViewController(imageViewController, animated: true)
+            return
+        }
     }
 }
 
