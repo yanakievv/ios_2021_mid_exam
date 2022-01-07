@@ -25,6 +25,11 @@ class VideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let titleLabel = UILabel()
+        titleLabel.text = model?.title ?? ""
+        titleLabel.textColor = .white
+        navigationItem.titleView = titleLabel
+        
 //        Not going to lie, looked it up ...
         
         guard let videoURL = Bundle.main.url(forResource: model?.asset ?? "", withExtension: "") else {
