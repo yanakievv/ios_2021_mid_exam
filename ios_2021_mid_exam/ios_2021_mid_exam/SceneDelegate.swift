@@ -15,6 +15,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = UIColor.clear
+        appearance.backgroundEffect = UIBlurEffect(style: .dark)
+
+            
+        let scrollingAppearance = UINavigationBarAppearance()
+        scrollingAppearance.configureWithTransparentBackground()
+        scrollingAppearance.backgroundColor = .wannaBeBlack
+            
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = scrollingAppearance
+        UINavigationBar.appearance().compactAppearance = scrollingAppearance
+        
         let homeViewController = HomeViewController()
         let navigationController = UINavigationController(rootViewController: homeViewController)
         
