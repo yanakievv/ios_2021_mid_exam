@@ -62,7 +62,7 @@ extension HomeViewController: UITableViewDelegate {
         }
         
 //        Not going to lie, looked it up.
-        guard let videoURL = Bundle.main.url(forResource: model.memories[indexPath.row].asset, withExtension: "mp4") else {
+        guard let videoURL = Bundle.main.url(forResource: model.memories[indexPath.row].asset, withExtension: "") else {
             return
         }
         
