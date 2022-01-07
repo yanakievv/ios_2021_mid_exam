@@ -75,6 +75,7 @@ class ImageTableViewCell: UITableViewCell {
             let asset = AVURLAsset(url: NSURL(fileURLWithPath: model.asset) as URL, options: nil)
             let imgGenerator = AVAssetImageGenerator(asset: asset)
             guard let cgImage = try? imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil) else {
+                // descriptionLabel left out :/
                 return
             }
             memoryImageView.image = UIImage(cgImage: cgImage)
