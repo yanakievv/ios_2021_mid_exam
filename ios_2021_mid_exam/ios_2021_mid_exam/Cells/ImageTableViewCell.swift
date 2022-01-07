@@ -12,7 +12,10 @@ class ImageTableViewCell: UITableViewCell {
     
     static let identifier = "ImageTableViewCellID"
     
-    let memoryImageView = UIImageView()
+    private let titleLabel = UILabel()
+    private let dateLabel = UILabel()
+    private let memoryImageView = UIImageView()
+    private let descriptionLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,15 +24,30 @@ class ImageTableViewCell: UITableViewCell {
         backgroundColor = .black
         layer.cornerRadius = 8
         
+        setupLabel(titleLabel)
+        setupLabel(dateLabel)
         setupImageView(memoryImageView)
+        setupLabel(descriptionLabel)
         
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(dateLabel)
         contentView.addSubview(memoryImageView)
+        contentView.addSubview(descriptionLabel)
         
         NSLayoutConstraint.activate([
-            memoryImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            memoryImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            
+            dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+            
+            memoryImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             memoryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             memoryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: memoryImageView.bottomAnchor, constant: 5),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
         ])
         
     }
@@ -38,12 +56,20 @@ class ImageTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupLabel(_ label: UILabel) {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+    }
+    
     private func setupImageView(_ imageView: UIImageView) {
         imageView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func configure(withModel model: Memory) {
-        memoryImageView.image = UIImage(named: model.asset)
+        titleLabel.text = model.title
+        dateLabel.text = model.date
+        memoryImageView.image = UIImage(named: model.asset)?.resizeImage(height: 250)
+        descriptionLabel.text = model.description
     }
     
 }
