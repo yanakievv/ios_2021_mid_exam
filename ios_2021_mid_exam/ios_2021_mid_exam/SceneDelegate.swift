@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let homeViewController = HomeViewController()
         let navigationController = UINavigationController(rootViewController: homeViewController)
         
-        window?.rootViewController = homeViewController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

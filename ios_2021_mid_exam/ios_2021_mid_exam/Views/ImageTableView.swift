@@ -18,6 +18,7 @@ class ImageTableView: UITableView {
         separatorStyle = .none
         backgroundColor = .black
         showsVerticalScrollIndicator = false
+        allowsSelection = true
     }
     
     required init?(coder: NSCoder) {
